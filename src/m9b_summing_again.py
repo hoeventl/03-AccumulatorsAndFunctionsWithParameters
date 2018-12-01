@@ -4,8 +4,8 @@ in its simplest classic forms:
    SUMMING:       total = total + number
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Thomas Hoevener.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
 def run_test_sum_powers():
     """ Tests the   sum_powers   function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this function.
+    # DONE: 2. Implement this function.
     #   It TESTS the  sum_powers  function defined below.
     #   Include at least **   3   ** tests.
     #
@@ -28,6 +28,23 @@ def run_test_sum_powers():
     print('--------------------------------------------------')
     print('Testing the   sum_powers   function:')
     print('--------------------------------------------------')
+
+    expected = 1 ** 2 + 2 ** 2 + 3 ** 2 + 4 ** 2
+    answer = sum_powers(4, 2)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 2:
+    expected = 1 ** 3 + 2 ** 3 + 3 ** 3 + 4 ** 3 + 5 ** 3
+    answer = sum_powers(5, 3)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 1 ** 5 + 2 ** 5 + 3 ** 5
+    answer = sum_powers(3, 5)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
 
 
 def sum_powers(n, p):
@@ -43,18 +60,23 @@ def sum_powers(n, p):
       -- sum_powers(100, 0.1) returns about 144.45655
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     #   No fair running the code of  sum_powers  to GENERATE
     #   test cases; that would defeat the purpose of TESTING!
     # -------------------------------------------------------------------------
+    total = 0
+    for k in range(n):
+        total = total + (k + 1) ** p
+
+    return total
 
 
 def run_test_sum_powers_in_range():
     """ Tests the   sum_powers_in_range   function. """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement this function.
+    # DONE: 4. Implement this function.
     #   It TESTS the  sum_powers_in_range  function defined below.
     #   Include at least **   3   ** tests.
     #
@@ -65,6 +87,23 @@ def run_test_sum_powers_in_range():
     print('--------------------------------------------------')
     print('Testing the   sum_powers_in_range   function:')
     print('--------------------------------------------------')
+
+    expected = 142.384776
+    answer = sum_powers_in_range(3, 100, 0.1)
+    print('Test 1 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 2:
+    expected = 50
+    answer = sum_powers_in_range(3, 5, 2)
+    print('Test 2 expected:', expected)
+    print('       actual:  ', answer)
+
+    # Test 3:
+    expected = 1
+    answer = sum_powers_in_range(1, 1, 1)
+    print('Test 3 expected:', expected)
+    print('       actual:  ', answer)
 
 
 def sum_powers_in_range(m, n, p):
@@ -80,12 +119,16 @@ def sum_powers_in_range(m, n, p):
       -- sum_powers_in_range(3, 100, 0.1) returns about 142.384776
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     #   No fair running the code of  sum_powers_in_range  to GENERATE
     #   test cases; that would defeat the purpose of TESTING!
     # -------------------------------------------------------------------------
+    total = 0
+    for k in range(m, n + 1):
+        total = total + k ** p
+    return total
 
 
 # -----------------------------------------------------------------------------
